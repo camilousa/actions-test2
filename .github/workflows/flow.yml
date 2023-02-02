@@ -59,5 +59,7 @@ jobs:
         
       # Deploys lambda with Zappa
       - name: Deploy lambda with Zappa
-        run: zappa update dev
+        run: |
+           source env/bin/activate
+           zappa update dev
 
