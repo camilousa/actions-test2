@@ -25,7 +25,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
         with:
           python-version: 'pypy3.9' 
       - name: Deploy dev
@@ -34,7 +34,7 @@ jobs:
          virtualenv my-deploy
          source my-deploy/bin/activate
          pip install -r requirements.txt zappa
-         zappa deploy dev
+         zappa update dev
         env:
          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
