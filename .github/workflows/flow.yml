@@ -57,3 +57,9 @@ jobs:
       - name: test cli
         run: aws s3api list-buckets
         
+      # Deploys lambda with Zappa
+      - name: Deploy lambda with Zappa
+      - run: |
+        source env/bin/activate
+        zappa update
+
