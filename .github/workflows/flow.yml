@@ -64,4 +64,8 @@ jobs:
           ls env
           ls env/lib
           pwd
+          source env/bin/activate
+          pip freeze
+          zappa update dev
+          
 
