@@ -29,12 +29,6 @@ jobs:
         with:
           python-version: 'pypy3.8' 
 
-      # install requirements.txt
-      - name: Install requirements.txt
-        run: |
-           python -m venv env
-           source env/bin/activate
-           pip install -r requirements.txt
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
@@ -61,6 +55,10 @@ jobs:
       # Deploys lambda with Zappa
       - name: Deploy lambda with Zappa
         run: |
+           python -m venv env
            source env/bin/activate
+           pip install -r requirements.txt
            zappa update dev
+           
+
 
